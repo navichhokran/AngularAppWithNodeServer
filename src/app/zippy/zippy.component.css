@@ -1,0 +1,25 @@
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.arrow{
+    height: 0px;
+    width: 0px;
+    float: right;
+}
+.upArrow{
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;  
+    border-bottom: 10px solid white;
+}
+.downArrow{
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+}
+.font-white{
+    color: white;
+}
+
+
+

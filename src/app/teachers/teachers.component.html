@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4">
+        </div>
+        <div class="col-lg-8">
+            <p> My teacher names pulled from Firebase Realtime database.</p>
+            <div class="d-inline-block">
+                <ul>
+                    <li *ngFor="let teacher of teachers$ | async ">
+                        {{teacher.name}}
+                    </li>
+                </ul>
+            </div>
+
+            <div (click)="onDivClicked()">
+                <input #newTeacher type="text">
+                <!-- Examples of style-binding, class-binding,  event binding, string interpolation as shown on this button -->
+                <button [style.backgroundColor]="isActive? 'lightgray': 'white'" class="ml-lg-4 btn btn-outline-success" [class.active]="isActive" (click)="onSave($event , newTeacher)">
+                    {{teachersBtn}}
+                </button>
+            </div>
+            <app-favourite [is-favourite] = "post.isFavourite" (change)="onFavouriteChanged($event)"></app-favourite>
+            <div>
+                <input [(ngModel)]="teachersInput" class="form-control mb-lg-4" type="text" (keyup.enter)="onEnterPressed()">
+                <p>{{teachersInput | titlecase}}</p>
+            </div>
+
+            <div>
+                <label><b>Some pipes like uppercase,currency etc are used below for demo</b></label><br>
+                <ul *ngIf=" teachers$ | async as teachers">
+                    <li>name : {{teachers[0].name | uppercase }}</li>
+                    <li>rating : {{teachers[0].rating |  number : '1.1-1' }}</li>
+                    <li>students : {{teachers[0].noOfStudents | number }}</li>
+                    <li>tuitionFee : {{teachers[0].fees | currency : 'USD' : true : '3.2-2' }}</li>
+                    <li>courseStarts : {{teachers[0].courseDate | date : 'longDate' }}</li>
+                </ul>
+                <br>
+            </div>
+
+            <div>
+                 <label><strong> Random Text with custom summary pipe : </strong></label>
+                <p>   
+                    {{randomText | summary:800}}
+                </p>
+            </div>       
+        </div>
+    </div>
+</div>
+
+
+
+

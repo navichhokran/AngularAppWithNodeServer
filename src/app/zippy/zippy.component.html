@@ -1,0 +1,16 @@
+
+<div class="card">
+  <div (click)="toggle()" class="card-header cursor-pointer bg-success font-white">
+     {{title}}
+     <div   [ngClass]="{
+       'arrow'    : true,
+       'upArrow'  : isExpanded,
+       'downArrow': !isExpanded
+      }">
+     </div>
+  </div>
+  <div *ngIf="isExpanded" class="card-body">
+    <ng-content></ng-content>  
+  </div>
+</div>
+

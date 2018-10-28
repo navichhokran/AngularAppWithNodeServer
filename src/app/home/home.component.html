@@ -1,0 +1,63 @@
+<div>
+    <div class="myJumbotron jumbotron text-center">
+        <div class="container">
+          <h1>{{title}}</h1>
+          <p>This is my first Angular app.I am trying to learn angular from scratch</p>
+          <div *ngIf="isSubHeadingExpanded">
+            <p>I know it doesnt look like an angular app right now but it will.</p>
+          </div>
+          <a href="#" (click)="toggleSubHeading()" class="btn btn-success">{{subHeadingBtnValue}}</a>
+        </div>
+    </div> 
+
+    <div class="container-fluid container-paddings teachers-authors">
+      <div class="row">
+        <div class="col-lg-8">
+            <app-teachers></app-teachers>
+        </div>
+        <div class="col-lg-4">
+            <app-authors></app-authors>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid container-margins">
+        <div class="row">
+            <div class="col-lg-12">
+                <app-zippy title="Shipping Details">
+                  <ng-container>
+                    u did'nt ship anything.
+                  </ng-container>
+                </app-zippy>
+      
+                <app-zippy *ngFor="let c of cities" [title] ="c.name" >
+                    {{c.country}}
+                </app-zippy>  
+  
+                <app-zippy title = "Comments Form" >                          
+                  <div>
+                      <app-contact-form></app-contact-form>
+                  </div> 
+                </app-zippy>
+                <app-zippy title = "Topics Form showing multiple topics" >                          
+                    <div>
+                        <app-topics-form></app-topics-form>
+                    </div> 
+                </app-zippy>
+                <app-zippy title = "All Posts" >                          
+                    <div>
+                        <app-posts></app-posts>
+                    </div> 
+                </app-zippy>
+            </div>
+          </div>
+    </div>
+    <footer></footer>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+<div (click)="onHeartClicked()" class="heart" 
+  [ngClass] ="{
+    'heart-full' : isLiked,
+    'heart-open' : !isLiked
+  }">
+  <div class="mg-lf-40">
+     {{likesCount}}
+  </div>
+</div>

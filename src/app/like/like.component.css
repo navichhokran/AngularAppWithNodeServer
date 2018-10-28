@@ -1,0 +1,19 @@
+.heart{
+    cursor: pointer;
+    margin: 10px;
+    height: 36px;
+    width:36px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.heart-open{
+    background-image: url('/assets/heartOpen.png');
+}
+
+.heart-full{
+    background-image: url('/assets/heartFull.png');
+}
+.mg-lf-40{
+    margin-left: 40px;
+}

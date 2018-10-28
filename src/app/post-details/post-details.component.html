@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Post</h2>
+  <app-panel>
+    <div class="appPanelHeading">
+      {{title}}
+    </div>
+    <div class="appPanelBody">
+      {{body}}
+    </div>
+  </app-panel>
+  <div class="m-t-20">
+      <button [disabled] = "postId==1" (click)="prevPost()" class="btn btn-success">Prev</button>
+      <button [disabled] = "postId==100" (click)="nextPost()" class="btn btn-success m-l-20">Next</button>
+  </div>
+
+</div>

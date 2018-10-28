@@ -1,0 +1,33 @@
+<div class="container signinBackground form-paddings">
+      <form [formGroup] = "signInForm" (ngSubmit) = "login(signInForm.value)">
+              <div *ngIf="signInForm.errors" class="alert alert-danger">
+                  The username or password is invalid
+              </div>
+                <div class="form-group">
+                        <label for="username">Username</label>
+                        <input 
+                            formControlName="username"
+                            id="username" 
+                            type="text" 
+                            class="form-control">   
+                        <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+                            <div *ngIf="username.errors.required">username is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input 
+                            formControlName="password"
+                            id="password" 
+                            type="text" 
+                            class="form-control">
+                            <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                            <div *ngIf="password.errors.required">password is required</div>
+                        </div>
+                    </div>   
+                    <div>
+                        <button [disabled]="username.invalid || password.invalid" class="btn btn-success" type="submit">Login</button>
+                        <label class=" p-r-0"><a class="text-success" routerLink="/signup"><u> create account</u></a></label>
+                    </div> 
+          </form>
+</div>

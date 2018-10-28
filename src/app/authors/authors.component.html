@@ -1,0 +1,56 @@
+<p> {{totalAuthors}} Authors </p>
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a (click)="viewMode = 'image'" class= "nav-link active" data-toggle="pill" href="#">Image View</a>
+    </li>
+    <li class="nav-item">
+        <a (click)="viewMode = 'list'" class= "nav-link" data-toggle="pill" href="#">List View</a>
+    </li>
+</ul>  
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'image'">
+         <div>
+              <img alt = "author pic" [src] ="authorsUrl" alt="" width="200px"/>
+         </div>
+      </div>
+    <div *ngSwitchCase="'list'">
+        <ul class="list-group"> 
+            <li class="list-group-item" *ngFor= "let author of nameOfAuthors">
+               {{author}} 
+            </li>
+         </ul> 
+     </div>
+    <div *ngSwitchDefault> Otherwise</div>
+ </div> 
+
+<app-like (change)="onChange($event)" [likes-count]="tweet.likesCount" [is-liked] = "tweet.isLiked" ></app-like>    
+
+<div *ngIf="books.length > 0; then booksList else noBooks"></div>
+<ng-template #booksList>
+    <div>
+        This author has following books. 
+        <ul>
+            <li *ngFor = "let book of books; even as isEven">
+                {{book}}<span *ngIf="isEven"> (e)</span>
+                <button (click)="onClickRemoveIcon(book)" class="btn btn-link"> x</button>
+            </li>
+        </ul> 
+    </div>
+</ng-template>
+
+<ng-template #noBooks>
+    <div>
+        No books. Just likes to be called an Author.
+    </div>
+</ng-template>
+
+<div>
+    <label>Some Custom Directives</label><br>
+    <input class="form-control" placeholder="custom directive applied for name" type="text" [appInputFormat]="'name'">
+    <input class="form-control" placeholder="custom directive applied for phone number" type="text" [appInputFormat]="'phone'">
+
+</div>
+       
+
+
+

@@ -1,0 +1,33 @@
+
+<div class="container-fluid bg bg-posts">
+ <div class="container">
+    <h2 class="text-success">Posts</h2>
+    <label for="newPost"> Add new Post</label>
+    <input
+        name = "newPost"
+        id = "newPost"
+        #newPost
+        class="form-control newpost-margins"
+        (keyup.enter) = "createPost(newPost)" 
+        type="text">
+  
+        <ul class="list-group">
+          <li  
+             *ngFor="let post of posts" class="list-group-item bg"
+             [class.bg-warning]="post['isRead']">
+             <a [routerLink]="['/posts', post.id]" [queryParams] = "{page : 1, order: 'newest'}" >
+               {{post.title}}
+             </a>
+             <button (click)="updatePost(post)" class="btn btn-default btn-sm">Update Post</button>
+             <button (click)="deletePost (post)" class="btn btn-default btn-sm mg-left-10">Delete Post</button> 
+          </li>
+        </ul>
+ </div> 
+</div>
+
+
+  <!-- <div>
+    <app-zippy *ngFor = "let post of posts" [title] = "post.title">
+      {{post.body}}
+    </app-zippy>
+  </div> -->

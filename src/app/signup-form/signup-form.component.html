@@ -1,0 +1,78 @@
+<div class="container signupBackground form-paddings">
+    <form [formGroup] = "form" (ngSubmit) = "create(form)">
+            <div *ngIf="form.errors" class="alert alert-danger">
+                The username or password is invalid
+            </div>
+            <div formGroupName = "account">
+                <div class="form-group">
+                        <label for="username">Username</label>
+                        <input 
+                            formControlName="username"
+                            id="username" 
+                            type="text" 
+                            class="form-control">
+                        <div *ngIf="username.pending" class="alert alert-warning">checking for uniqueness...</div>    
+                        <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+                            <div *ngIf="username.errors.required">username is required</div>
+                            <div *ngIf="username.errors.minlength">minimum length is 4 characters</div>
+                            <div *ngIf="username.errors.maxlength">maximum length is 10 characters</div>
+                            <div *ngIf="username.errors.cannotContainSpace">username cannot contain space</div>
+                            <div *ngIf="username.errors.shouldBeUnique">username is already taken</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input 
+                            formControlName="email"
+                            id="email" 
+                            type="text" 
+                            class="form-control">   
+                        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                            <div *ngIf="email.errors.required">email is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input 
+                            formControlName="password"
+                            id="password" 
+                            type="text" 
+                            class="form-control">
+                            <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                                <div *ngIf="password.errors.required">password is required</div>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input 
+                            formControlName="confirmPassword"
+                            id="confirmPassword" 
+                            type="text" 
+                            class="form-control">
+                            <div *ngIf="confirmPassword.touched && confirmPassword.invalid" class="alert alert-danger">
+                                <div *ngIf="confirmPassword.errors.required">must confirm password</div>
+                            </div>
+                    </div>
+            </div>
+        
+            <button data-toggle="modal" data-target="#Modal1" class="btn btn-success" type="submit">Create Account</button>
+        </form>
+        <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="Modal1" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Apologies</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                       Sorry this service has been disabled due to security reasons.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+</div>

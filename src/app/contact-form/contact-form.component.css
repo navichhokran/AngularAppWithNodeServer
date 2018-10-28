@@ -1,0 +1,11 @@
+.form-control.ng-touched.ng-invalid{
+    border:1px solid red;
+}
+.bg-contact{
+    background-color:#f5fbf6;
+}
+
+.contact-paddings{
+    padding-top    : 40px;
+    padding-bottom : 40px;
+}
